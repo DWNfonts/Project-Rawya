@@ -13,7 +13,7 @@
 >
 > 这些条款和条件如有变更，恕不另行通知，但不会对字体的使用收取费用。
 
-软件部分授权（3 句 BSD 许可）：
+软件部分授权（3 句 BSD 许可，含编码数据）：
 > Copyright <year> <copyright holder>
 >
 > Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
