@@ -1,3 +1,3 @@
 #/usr/bin/bash
-python chrset.py charlist.txt
-python gnallcmp.py
+python prepcomp/chrset.py ./data/charlist.txt
+python prepcomp/gnallcmp.py

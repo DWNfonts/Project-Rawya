@@ -1,13 +1,17 @@
 # GenGrid.py - 生成网格
+from os import set_inheritable
 from tqdm import tqdm
 from PIL import Image, ImageDraw, ImageFont
 from math import floor
 
+# 这电脑哪里会有 DOS 攻击呢
+ImageFont.MAX_STRING_LENGTH = None
+
 # 创建图章 (24 * 24)
 imgTemp = Image.new("RGBA", (24, 24), "darkgreen")
 drwTemp = ImageDraw.Draw(imgTemp)
-drwTemp.rectangle([0, 0, 11, 11], "lightgreen")
-drwTemp.rectangle([12, 12, 23, 23], "lightgreen")
+drwTemp.rectangle((0, 0, 11, 11), "seagreen")
+drwTemp.rectangle((12, 12, 23, 23), "seagreen")
 
 # 创建图像（1200 x 1212）
 fleComps = open('data/comps1.txt', 'r')
@@ -26,7 +30,10 @@ for j in range(6):
         strCompsName = fleComps.readline()
         if strCompsName == "":
             pass
+        elif fntSans.getlength("%d:%s" % (i, strCompsName)) > 120:
+            drwMain.text((widthStart, heightStart), "%d:(too long, see orig)" %
+                         i, font=fntSans, fill="lightgreen")
         else:
             drwMain.text((widthStart, heightStart), "%d:%s" %
-                     (i, strCompsName), font=fntSans, fill="seagreen")
+                         (i, strCompsName), font=fntSans, fill="lightgreen")
     imgMain = imgMain.save(str(j) + ".png")

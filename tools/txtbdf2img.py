@@ -9,9 +9,11 @@ with open("data/compsr.txt", "r") as file:
     for line in file:
         ac = font.draw(line)
         width = im.size[0]
-        im_ac = Image.frombytes("RGBA", (ac.width(), ac.height()), ac.tobytes("RGBA"))
+        im_ac = Image.frombytes(
+            "RGBA", (ac.width(), ac.height()), ac.tobytes("RGBA"))
         if ac.width() > width:
-            im = ImageOps.expand(im, border=(0, 0, ac.width() - width, ac.height()))
+            im = ImageOps.expand(im, border=(
+                0, 0, ac.width() - width, ac.height()))
         else:
             im = ImageOps.expand(im, border=(0, 0, 0, ac.height()))
         height = im.size[1] - 12

@@ -19,10 +19,26 @@
 import idsread as ir
 import sys
 
-with open("charlist.txt", encoding="UTF-8") as file:
+j0set = []
+# https://en.wikipedia.org/wiki/GB_2312
+# exactly the same as the G0 one:
+# break CFD4-CFFE
+
+for i in range(0xB0, 0xF5):
+    for j in range(0xA1, 0xFF):
+        encHanzi = i * 256 + j
+        if encHanzi in range(0xCFD4, 0xCFFF):
+            break
+        elif encHanzi in range(0xF4A6, 0xF4FF):
+            break
+        else:
+            strHanzi = encHanzi.to_bytes(2, "big").decode(encoding="EUC-JP")
+            j0set.append(strHanzi)
+
+with open("./data/charlist.txt", encoding="UTF-8") as file:
     charList = file.read()
-with open("ids_lv2.txt", encoding="UTF-8") as f:
-    with open("comps.txt", "w", encoding="UTF-8") as g:
+with open("./data/ids_lv2.txt", encoding="UTF-8") as f:
+    with open("./data/comps.txt", "w", encoding="UTF-8") as g:
         for line in f:
             lstLine = line.split("\t")
             entry = lstLine[0]
@@ -33,8 +49,8 @@ with open("ids_lv2.txt", encoding="UTF-8") as f:
                     g.write("%s\t%s\n" % (entry, toOutput))
                 else:
                     g.write("%s\t%s.a\n" % (entry, ir.chr2ufn(entry)))
-with open("comps.txt", "r", encoding="UTF-8") as f:
-    with open("comps1.txt", "w", encoding="UTF-8") as g:
+with open("./data/comps.txt", "r", encoding="UTF-8") as f:
+    with open("./data/comps1.txt", "w", encoding="UTF-8") as g:
         lstBuffer = []
         for line in f:
             lstLine = line.split("\t")
@@ -45,8 +61,8 @@ with open("comps.txt", "r", encoding="UTF-8") as f:
                     g.write(item + "\n")
                 lstBuffer.append(item)
 
-with open("comps1.txt") as f:
-    with open("compsr.txt", "w", encoding="UTF-8") as g:
+with open("./data/comps1.txt") as f:
+    with open("./data/compsr.txt", "w", encoding="UTF-8") as g:
         for line in f:
             comps = line.split(".")
             strCompReadable = ""
@@ -62,8 +78,13 @@ with open("comps1.txt") as f:
             strCompReadable = strCompReadable.strip("\n")
             searchLine = line.strip("\n")
             hanziDetected = ""
-            with open("comps.txt", encoding="UTF-8") as file:
+            with open("./data/comps.txt", encoding="UTF-8") as file:
                 for entry in file:
                     if searchLine in entry:
                         hanziDetected += entry.split("\t")[0]
-            g.write("%s\t%s\t%s\n" % (searchLine, strCompReadable, hanziDetected))
+            a = 0
+            for hanzi in hanziDetected:
+                if hanzi in j0set:
+                    a += 1
+            g.write("%s\t%s\t%s\t%d\t%d\n" %
+                    (searchLine, strCompReadable, hanziDetected, len(hanziDetected), a))

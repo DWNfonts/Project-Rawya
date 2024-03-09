@@ -1,3 +1,3 @@
 #/usr/bin/bash
-rm charlist.txt
-rm comps*.txt
+rm data/charlist.txt
+rm data/comps*.txt

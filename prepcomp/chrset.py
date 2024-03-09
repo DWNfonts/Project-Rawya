@@ -20,7 +20,7 @@ import json, sys
 # fetch kTGH charset from Unihan database
 
 kTGHset = []
-with open("Unihan_OtherMappings.txt", "r") as f:
+with open("./data/Unihan_OtherMappings.txt", "r") as f:
     for line in f:
         if line.startswith("U+"):
             lstEntry = line.split("\t")
@@ -31,7 +31,7 @@ with open("Unihan_OtherMappings.txt", "r") as f:
                 kTGHset.append(strHanzi)
 
 g7set = []
-with open("g7.json", "r", encoding="UTF-8") as f:
+with open("./data/g7.json", "r", encoding="UTF-8") as f:
     objG7 = json.load(f)
     for lstHanziMeta in objG7["rows"]:
         strHanzi = lstHanziMeta[1]
