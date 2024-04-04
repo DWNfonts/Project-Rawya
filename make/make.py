@@ -7,7 +7,7 @@ from pathlib import Path
 # 严格模式：设为真的时候，只有所有部件都存在时保存
 严格模式 = True
 
-with open("data/comps_test.txt") as 部件表:
+with open("data/comps.txt") as 部件表:
     for 单字对应部件 in 部件表:
         处理后的单字对应部件 = 单字对应部件.rstrip().split("\t")
         汉字 = 处理后的单字对应部件[0]
