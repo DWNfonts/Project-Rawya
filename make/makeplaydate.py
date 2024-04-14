@@ -16,7 +16,7 @@ for i in trange(len(部件列表)):
     部件图 = Image.open("out/" + 部件)
     图.paste(部件图, (i % 16 * (字形宽 + 1), floor(i / 16) * 字形高))
 print("保存…")
-图.save("rawya-table-%d-%d.png"  % (13,12))
+图.save("rawya-table-%d-%d.png" % (字形宽 + 1, 字形高))
 
 with open("rawya.fnt", "w+") as 文件:
     print("写入字体信息到文件…")
