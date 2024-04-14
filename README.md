@@ -2,7 +2,7 @@
 [![QQ 群：619164913](https://img.shields.io/badge/619164913-%2312B7F5?style=for-the-badge&logo=tencentqq&logoColor=white)](https://qm.qq.com/q/m3j4G5YGsw)
 [![爱发电](https://img.shields.io/badge/%E7%88%B1%E5%8F%91%E7%94%B5-%23946CE6.svg?style=for-the-badge&logoColor=white)](http://afdian.net/a/DWNfonts)
 [![查看授权](https://img.shields.io/badge/查看授权-%2300A7E1?style=for-the-badge&logoColor=white)](LICENSE.md)
-[![回到小雅](https://img.shields.io/badge/回到小雅-%23880e4f?style=for-the-badge&logoColor=white)](https://00ff.booth.pm/items/4927023)
+[![回到小雅](https://img.shields.io/badge/回到小雅-%23880e4f?style=for-the-badge&logoColor=white)](https://github.com/DWNfonts/XiaoyaPixel)
 
 ---
 生雅项目——没煮熟的小雅，没有手工干预的半成品。  
