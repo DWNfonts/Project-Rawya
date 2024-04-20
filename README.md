@@ -1,7 +1,7 @@
-![小雅像素 | XiaoyaPixel](docs/logo.png)  
+![Project Rawya 生雅](docs/logo.png)  
 [![QQ 群：619164913](https://img.shields.io/badge/619164913-%2312B7F5?style=for-the-badge&logo=tencentqq&logoColor=white)](https://qm.qq.com/q/m3j4G5YGsw)
 [![爱发电](https://img.shields.io/badge/%E7%88%B1%E5%8F%91%E7%94%B5-%23946CE6.svg?style=for-the-badge&logoColor=white)](http://afdian.net/a/DWNfonts)
-[![查看授权](https://img.shields.io/badge/查看授权-%2300A7E1?style=for-the-badge&logoColor=white)](LICENSE.md)
+[![3 语句 BSD + 其他](https://img.shields.io/badge/3%20语句%20BSD%20+%20其他-%23870000?style=for-the-badge&logo=freebsd&logoColor=white)](LICENSE.md)
 [![回到小雅](https://img.shields.io/badge/回到小雅-%23880e4f?style=for-the-badge&logoColor=white)](https://github.com/DWNfonts/XiaoyaPixel)
 
 ---
@@ -18,3 +18,6 @@
 > 说到这玩意…还有人要贡献的说？
 
 你大抵可以[搞个 Pull Request](https://github.com/DWNfonts/Project-Rawya/pulls)。
+## 分支
+### `old-apr24` 分支
+四月 5 日、14 日制作的部件。因为质量原因将源 `develop` 分支存档为 `old-apr24` 后重新变基。
