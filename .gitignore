@@ -9,3 +9,5 @@ awa.png
 out
 rawya-table-*
 *.fnt
+.venv
+rawya.*
