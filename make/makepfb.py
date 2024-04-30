@@ -12,8 +12,7 @@ from PIL import Image
 from tqdm import tqdm, trange
 from os import listdir
 
-
-def main():
+if __name__ == "__main__":
     now = datetime.now()
     builder = FontBuilder(12)
 
@@ -101,7 +100,3 @@ def main():
     builder.save_ttf("rawya.ttf")
     builder.save_bdf("rawya.bdf")
     builder.save_pcf("rawya.pcf")
-
-
-if __name__ == "__main__":
-    main()
