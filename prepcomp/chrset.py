@@ -26,16 +26,23 @@ with open("./data/Unihan_OtherMappings.txt", "r") as f:
             lstEntry = line.split("\t")
             strEncoding = lstEntry[0]
             strTag = lstEntry[1]
-            if strTag == "kTGH":
+            strKtghValue = lstEntry[2].replace("2013:", "")
+            if strTag == "kTGH" and int(strKtghValue) <= 3500:
                 strHanzi = eval("chr(%s)" % strEncoding.replace("U+", "0x"))
                 kTGHset.append(strHanzi)
 
 g7set = []
-with open("./data/g7.json", "r", encoding="UTF-8") as f:
-    objG7 = json.load(f)
-    for lstHanziMeta in objG7["rows"]:
-        strHanzi = lstHanziMeta[1]
-        g7set.append(strHanzi)
+# with open("./data/g7.json", "r", encoding="UTF-8") as f:
+#     objG7 = json.load(f)
+#     for lstHanziMeta in objG7["rows"]:
+#         strHanzi = lstHanziMeta[1]
+#         g7set.append(strHanzi)
+
+# https://github.com/bedlate/cn-corpus/blob/master/%E7%8E%B0%E4%BB%A3%E6%B1%89%E8%AF%AD%E5%B8%B8%E7%94%A8%E5%AD%97%E8%A1%A8.xls
+with open("./data/g7small.txt", "r", encoding="UTF-8") as f:
+    for line in f:
+        char = line.split("\t")[1]
+        g7set.append(char)
 
 g0set = []
 # https://en.wikipedia.org/wiki/GB_2312
@@ -44,7 +51,7 @@ g0set = []
 # pt. 2: D7[A1-F9]
 # pt. 3: [D8-F7][A1-FE]
 
-for i in range(0xB0, 0xF8):
+for i in range(0xB0, 0xD7):
     for j in range(0xA1, 0xFF):
         encHanzi = i * 256 + j
         if encHanzi in range(0xD7FA, 0xD7FF):
