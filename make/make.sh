@@ -1,3 +1,4 @@
+mkdir ./out
 rm ./out/*
 rm ./rawya.*
 python make/makeglyph.py
