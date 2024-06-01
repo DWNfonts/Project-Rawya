@@ -43,36 +43,36 @@ if __name__ == "__main__":
     builder.os2_config.cap_height = 10
 
     部件列表 = listdir("comps/")
-    with open("./rycomps.txt", "w", encoding="UTF-8") as g:
-        g.write("\n".join(部件列表))
     print("正在导入字体…")
-    for i in trange(len(部件列表)):
-        部件 = 部件列表[i].replace(".png", "")
-        # print(部件, end="")
-        编码 = 0xF0000 + i
-        builder.character_mapping.update({编码: 部件})
-        部件图 = Image.open("comps/%s.png" % 部件)
-        data = []
-        for x in range(12):
-            line = []
-            for y in range(12):
-                a = 部件图.getpixel((y, x))[3]
-                if a > 0:
-                    a = 1
-                line.append(a)
-            data.append(line)
+    with open("./rycomps.txt", "w", encoding="UTF-8") as g:
+        for i in trange(len(部件列表)):
+            部件 = 部件列表[i].replace(".png", "")
+            g.write(部件 + "\n")
+            # print(部件, end="")
+            编码 = 0xF0000 + i
+            builder.character_mapping.update({编码: 部件})
+            部件图 = Image.open("comps/%s.png" % 部件)
+            data = []
+            for x in range(12):
+                line = []
+                for y in range(12):
+                    a = 部件图.getpixel((y, x))[3]
+                    if a > 0:
+                        a = 1
+                    line.append(a)
+                data.append(line)
 
-        builder.glyphs.append(
-            Glyph(
-                name=部件,
-                advance_width=0,
-                advance_height=12,
-                horizontal_origin=(0, 0),
-                vertical_origin_y=0,
-                data=data,
+            builder.glyphs.append(
+                Glyph(
+                    name=部件,
+                    advance_width=0,
+                    advance_height=12,
+                    horizontal_origin=(0, 0),
+                    vertical_origin_y=0,
+                    data=data,
+                )
             )
-        )
-        # print("done")
+            # print("done")
 
     builder.glyphs.append(
         Glyph(
