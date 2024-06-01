@@ -65,7 +65,7 @@ if __name__ == "__main__":
         builder.glyphs.append(
             Glyph(
                 name=部件,
-                advance_width=12,
+                advance_width=0,
                 advance_height=12,
                 horizontal_origin=(0, 0),
                 vertical_origin_y=0,

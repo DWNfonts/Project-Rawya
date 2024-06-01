@@ -16,6 +16,7 @@
 **`make` 段：**`cd` 到此目录，然后执行 `make/make.sh`。
 * 此时 `rawya.fnt` 是传统方法所生成的 Playdate 字体，可用 [Bits'n'Picas](https://github.com/kreativekorp/bitsnpicas) 打开；
 * `rawya.ttf` 等非 `fnt` 后缀为 `makepfb.py` 通过[狼人小林](https://github.com/TakWolf) [`pixel_font_builder` 库](https://github.com/TakWolf/pixel-font-builder)生成的现代字体。~~（不过挺糙的，一看就是复制粘贴自述文档（~~
+> `makecompsfont.py` 是用来直接生成单部件字体的。本人尝试了一些方案，但是觉得使用演算表（LibreOffice Calc）来处理比较好。
 
 **`tools` 段：** 大概率废弃。  
 **`prepcomp` 段：** 由于这段代码其实是我在 2024 年 1 月写的，到现在我也记不清写了什么。脚本的开头部分或许写了这些代码是干什么的。
