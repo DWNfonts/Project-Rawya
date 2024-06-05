@@ -1,8 +1,9 @@
 import os
 from pixel_font_builder import (
     FontBuilder,
-    StyleName,
-    SerifMode,
+    WeightName,
+    SerifStyle,
+    SlantStyle,
     WidthMode,
     Glyph,
     opentype,
@@ -14,12 +15,21 @@ from os import listdir
 
 if __name__ == "__main__":
     now = datetime.now()
-    builder = FontBuilder(12)
+
+    builder = FontBuilder()
+    builder.font_metric.font_size = 12
+    builder.font_metric.horizontal_layout.ascent = 12
+    builder.font_metric.horizontal_layout.descent = 0
+    builder.font_metric.vertical_layout.ascent = 6
+    builder.font_metric.vertical_layout.descent = -6
+    builder.font_metric.x_height = 8
+    builder.font_metric.cap_height = 10
 
     builder.meta_info.version = now.strftime("%y%m%d%H%M%S")
     builder.meta_info.family_name = "Rawya (makepfb.py)"
-    builder.meta_info.style_name = StyleName.REGULAR
-    builder.meta_info.serif_mode = SerifMode.SANS_SERIF
+    builder.meta_info.weight_name = WeightName.REGULAR
+    builder.meta_info.serif_style = SerifStyle.SANS_SERIF
+    builder.meta_info.slant_style = SlantStyle.NORMAL
     builder.meta_info.width_mode = WidthMode.MONOSPACED
     builder.meta_info.manufacturer = "DWNfonts"
     builder.meta_info.designer = "DWNfonts"
@@ -32,15 +42,6 @@ if __name__ == "__main__":
         "https://github.com/DWNfonts/Project-Rawya/blob/develop/LICENSE.md"
     )
     builder.meta_info.sample_text = "Hello World!"
-
-    builder.horizontal_header.ascent = 12
-    builder.horizontal_header.descent = 0
-
-    builder.vertical_header.ascent = 6
-    builder.vertical_header.descent = -6
-
-    builder.os2_config.x_height = 8
-    builder.os2_config.cap_height = 10
 
     部件列表 = listdir("out/")
     print("正在导入字体…")
@@ -66,7 +67,7 @@ if __name__ == "__main__":
                 advance_height=12,
                 horizontal_origin=(0, 0),
                 vertical_origin_y=0,
-                data=data,
+                bitmap=data,
             )
         )
 
@@ -77,7 +78,7 @@ if __name__ == "__main__":
             advance_height=12,
             horizontal_origin=(0, 0),
             vertical_origin_y=0,
-            data=[
+            bitmap=[
                 [1, 1, 1, 1, 1, 1, 1, 1],
                 [1, 0, 0, 0, 0, 0, 0, 1],
                 [1, 0, 0, 0, 0, 0, 0, 1],
