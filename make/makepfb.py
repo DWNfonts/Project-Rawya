@@ -98,5 +98,5 @@ if __name__ == "__main__":
     builder.save_otf("rawya.otf")
     builder.save_otf("rawya.woff2", flavor=opentype.Flavor.WOFF2)
     builder.save_ttf("rawya.ttf")
-    builder.save_bdf("rawya.bdf")
+    # builder.save_bdf("rawya.bdf")
     builder.save_pcf("rawya.pcf")

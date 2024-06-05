@@ -38,9 +38,12 @@ if __name__ == "__main__":
                     要生成的部件路径.append(该部件路径)
             if 存在点a:
                 目标路径 = "comps/%s.a.png" % 汉字编码
-                with Image.open(目标路径) as 图:
-                    print("存在 %s 汉字的独体部件。")
-                    图.save("out/%s.png" % 汉字)
+                try:
+                    with Image.open(目标路径) as 图:
+                        print("存在 %s 汉字的独体部件。")
+                        图.save("out/%s.png" % 汉字)
+                except:
+                    print("似乎出了点问题")
             elif len(要生成的部件路径) == 0:
                 print("无部件可用。")
             else:
