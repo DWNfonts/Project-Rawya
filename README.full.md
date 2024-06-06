@@ -11,7 +11,8 @@
 **请不要将此项目用于生产**
 ## 怎么用
 首先建议使用 GNU/Linux 操作系统（macOS 也行），并且安装**最新版** Python 以及 `tqdm`、`pillow` 和 `pixel_font_builder` 库。
-> 建议使用虚拟环境安装。
+> 建议使用虚拟环境安装。  
+> 另：`pip install -r requirements.txt` 一键下载。
 
 **`make` 段：**`cd` 到此目录，然后执行 `make/make.sh`。
 * 此时 `rawya.fnt` 是传统方法所生成的 Playdate 字体，可用 [Bits'n'Picas](https://github.com/kreativekorp/bitsnpicas) 打开；
