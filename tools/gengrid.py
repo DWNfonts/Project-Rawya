@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
 # GenGrid.py - 生成网格
 from os import set_inheritable
 from tqdm import tqdm

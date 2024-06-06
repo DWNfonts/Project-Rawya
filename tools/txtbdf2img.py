@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
 # TxtBdf2Img
 from bdfparser import Font
 from PIL import Image, ImageOps

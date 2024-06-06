@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
 from PIL import Image
 from os import listdir
 from tqdm import tqdm, trange
