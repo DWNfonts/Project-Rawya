@@ -22,6 +22,10 @@ if __name__ == "__main__":
         return ".".join(lstOutput)
 
     with open("data/comps.txt") as 部件表:
+        a = open("data/midcs.txt")
+        小雅BDF含有汉字 = list(list(a.readlines())[0])
+        print(小雅BDF含有汉字)
+        a.close()
         for 单字对应部件 in 部件表:
             处理后的单字对应部件 = 单字对应部件.rstrip().split("\t")
             汉字 = 处理后的单字对应部件[0]
@@ -33,6 +37,9 @@ if __name__ == "__main__":
                 or Path("comps/%s.m.png" % 汉字编码).is_file()
             ):
                 存在点a = True  # 这回真来了
+            存在于BDF = None # 能不能？可能
+            if 汉字 in 小雅BDF含有汉字:
+                存在于BDF = True # 这回真能了
             包含的部件 = 处理后的单字对应部件[1].split(",")
             要生成的部件路径 = []
             for 单个部件 in 包含的部件:
@@ -47,6 +54,8 @@ if __name__ == "__main__":
                         图.save("out/%s.png" % 汉字)
                 except:
                     print("似乎出了点问题")
+            elif 存在于BDF:
+                print("汉字「%s」存在于 BDF 中。" % 汉字)
             elif len(要生成的部件路径) == 0:
                 print("无部件可用。")
             else:
