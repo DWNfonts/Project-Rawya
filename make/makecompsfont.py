@@ -70,8 +70,8 @@ if __name__ == "__main__":
                     name=部件,
                     advance_width=0,
                     advance_height=12,
-                    horizontal_origin=(0, 0),
-                    vertical_origin_y=0,
+                    horizontal_offset=(0, 0),
+                    vertical_offset=(0, 0),
                     bitmap=data,
                 )
             )
@@ -82,8 +82,8 @@ if __name__ == "__main__":
             name=".notdef",
             advance_width=8,
             advance_height=12,
-            horizontal_origin=(0, 0),
-            vertical_origin_y=0,
+            horizontal_offset=(0, 0),
+            vertical_offset=(0, 0),
             bitmap=[
                 [1, 1, 1, 1, 1, 1, 1, 1],
                 [1, 0, 0, 0, 0, 0, 0, 1],
