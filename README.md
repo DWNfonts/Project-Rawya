@@ -4,6 +4,8 @@
 [![3 语句 BSD + 其他](https://img.shields.io/badge/3%20语句%20BSD%20+%20其他-%23870000?style=for-the-badge&logo=freebsd&logoColor=white)](LICENSE.md)
 [![回到小雅](https://img.shields.io/badge/回到小雅-%23880e4f?style=for-the-badge&logoColor=white)](https://github.com/DWNfonts/XiaoyaPixel)
 
+# 本项目已停更
+
 ---
 生雅项目——没煮熟的小雅，没有手工干预的半成品。  
 （也就是说，小雅是这玩意的 fork）  
