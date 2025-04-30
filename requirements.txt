@@ -1,4 +1,4 @@
 tqdm >= 4.66.4
 pillow >= 10.3.0
-pixel_font_builder >= 0.0.25
+pixel-font-builder>=0.0.34
 bdfparser >= 2.2.0
